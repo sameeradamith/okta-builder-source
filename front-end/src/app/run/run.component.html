@@ -1,0 +1,269 @@
+<app-header></app-header>
+
+
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center mb-4">
+    <h1 class="display-4 theme_color">Okta_builder_</h1>
+    <p class="lead">Build your Okta startup templete with few steps!</p>
+  </div>
+
+  <div class="container">
+
+
+    <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Referance</span>
+          </h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <a href="https://okta.com/" target="_blank"><h6 class="my-0">Okta Official website <img src="../../assets/arrow-up-right-square.svg" class="ml-1" width="16px"></h6></a>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <a href="https://developer.okta.com/" target="_blank"><h6 class="my-0">Okta Developer Portal <img src="../../assets/arrow-up-right-square.svg" class="ml-1" width="16px"></h6></a>
+                </div>
+              </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <a href="https://developer.okta.com/docs/guides/oie-intro/" target="_blank"><h6 class="my-0">About Okta Identity Engine <img src="../../assets/arrow-up-right-square.svg" class="ml-1" width="16px"></h6></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+
+
+
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Application Details</h4>
+
+          <form class="needs-validation" [formGroup]="runForm" (ngSubmit)="onSubmit(runForm)" novalidate>
+  
+            <div class="mb-3">
+              <label for="email"> Application Name <span class="text-muted">*</span></label>
+              <input type="text" formControlName="app_name" class="form-control">
+              <div class="invalid-feedback">
+                Please enter a valid application name.
+              </div>
+            
+            </div>
+
+
+
+            <h4 class="mb-3 mt-4">Authentication Method</h4>
+
+            <div class="mb-3">
+                <label> Select Authentication Method <span class="text-muted">*</span></label>
+            <div class="row card-deck text-center">
+                
+                <label>
+                    <input type="radio" formControlName="auth_method" value="redirect" checked>
+                    <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Redirect</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="../../assets/app-indicator.svg" width="70px">
+                    </div>
+                    </div>
+                </label>
+
+                <label>
+                    <input type="radio" formControlName="auth_method" value="embedded">
+                    <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Embedded</h4>
+                    </div>
+                    <div class="card-body" >
+                        <img src="../../assets/arrow-up-right-square-fill.svg" width="70px">
+                    </div>
+                    </div>
+                </label>
+          
+              </div>
+
+              <small class="form-text text-muted">1. <strong>Redirect authentication:</strong> The redirect authentication sample apps demonstrate how to redirect users to an Okta-hosted sign-in page, and then receive users redirected back from Okta after users sign in.</small>
+              <small class="form-text text-muted">2. <strong>Embedded authentication:</strong> The embedded authentication sample apps demonstrate how to embed authentication in an app with Okta package dependencies.</small>
+            </div>
+
+
+     
+
+            <hr class="mb-4 mt-4">
+
+            <h4 class="mb-3 mt-4">Development Framework</h4>
+
+            <div class="mb-3">
+                <label for="email"> Select Framework <span class="text-muted">*</span></label>
+            <div class="row card-deck text-center">
+              
+              <div *ngIf="runForm.value.auth_method == 'redirect'">
+                <label>
+                    <input type="radio" formControlName="framework" value="angular" checked>
+                    <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Angular</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="../../assets/angular.png" width="90px">
+                    </div>
+                    </div>
+                </label>
+
+                <label style="opacity: 0.4;">
+                    <input type="radio" formControlName="framework" value="react" disabled>
+                    <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">React</h4>
+                    </div>
+                    <div class="card-body" >
+                        <img src="../../assets/react.png" width="120px" style="margin-top: 10px;">
+                    </div>
+                    </div>
+                </label>
+
+                <label style="opacity: 0.4;">
+                    <input type="radio" formControlName="framework" value="other" disabled>
+                    <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">More</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="../../assets/other.png" width="60px" style="margin-top: 20px;">
+                    </div>
+                    </div>
+                </label>
+
+              </div>
+
+
+
+              <div *ngIf="runForm.value.auth_method == 'embedded'">
+                <label>
+                    <input type="radio" formControlName="framework" value="nodejs" checked>
+                    <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Node.js</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="../../assets/nodejs.png" width="100px" style="margin-top: 10px;">
+                    </div>
+                    </div>
+                </label>
+
+                <label style="opacity: 0.4;">
+                    <input type="radio" formControlName="framework" value="Java" disabled>
+                    <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Java</h4>
+                    </div>
+                    <div class="card-body" >
+                        <img src="../../assets/java.png" width="100px" style="margin-top: 10px;">
+                    </div>
+                    </div>
+                </label>
+
+                <label style="opacity: 0.4;">
+                    <input type="radio" formControlName="framework" value="other" disabled>
+                    <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">More</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="../../assets/other.png" width="60px" style="margin-top: 20px;">
+                    </div>
+                    </div>
+                </label>
+
+              </div>
+
+
+          
+              </div>
+
+              <small class="form-text text-muted"> * Support only for Angular and Node.js in this demo version.</small>
+            
+            </div>
+
+
+
+        
+
+
+            <hr class="mb-4">
+            <h4 class="mb-3">Okta Configurations</h4>
+
+            <div class="mb-3">
+              <label for="address">Issuer Path</label>
+              <input type="text" formControlName="issuer_value" class="form-control" placeholder="https://oie-XXXXXXX.oktapreview.com/oauth2/default" required>
+              <div class="invalid-feedback">
+                Please enter your Issuer Value.
+              </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="address">Client ID Value</label>
+                <input type="text" formControlName="clientId_value" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please enter your ClientId Value.
+                </div>
+            </div>
+
+
+            <label>Redirect URI Value</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon3">https://example.com/</span>
+                </div>
+                <input type="text" formControlName="redirectUri_value" class="form-control" placeholder="login/callback" required>
+                <div class="invalid-feedback">
+                    Please enter your RedirectUri Value.
+                </div>
+            </div>
+
+
+            <div *ngIf="runForm.value.auth_method == 'embedded'" class="mb-3">
+              <label for="address">Client Secret</label>
+              <input type="password" formControlName="client_secret" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter your Client secret Value.
+              </div>
+          </div>
+
+                       
+            <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="runForm.invalid">Build Templete</button>
+          
+          </form>
+        </div>
+      </div>
+
+
+
+      <!-- Download Section -->
+      <ng-container *ngIf="isDownload">
+        <hr class="mb-5 mt-4">
+        <div class="text-center mb-5">
+          <h4 class="mb-4">Your startup template has been created successfully. Download Now!</h4>
+          <button class="btn btn-success" (click)="downloadFile('source')" type="submit">Download Source + Docker template</button>
+  
+          <a href="/help"><u class="text-muted"><h5 class="mt-4" style="cursor: pointer;">Guideline to build and run your project.</h5></u></a>
+        </div>
+      </ng-container>
+
+
+
+
+      <hr/>
+      <footer class="text-muted">
+        <div class="container text-center">
+          <p>Okta_builder_ - v1.0</p>
+          <p>Developed by Sameera Damith</p>
+        </div>
+      </footer>
+  </div>
+
+
+
+

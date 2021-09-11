@@ -1,0 +1,24 @@
+{
+  "name": "okta-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js", 
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sameera Perera",
+  "license": "ISC",
+  "dependencies": {
+    "@okta/jwt-verifier": "^2.3.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "del": "^6.0.0",
+    "express": "^4.17.1",
+    "fs-extra": "^10.0.0",
+    "randomstring": "^1.2.1",
+    "replace-in-file": "^6.2.0",
+    "sqlite3": "^5.0.2",
+    "zip-lib": "^0.7.2"
+  }
+}

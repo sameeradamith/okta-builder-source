@@ -1,0 +1,12 @@
+.theme_color {
+    color: #2f2e41;
+}
+
+.logo_link {
+    color: #2f2e41;
+}
+
+.logo_link:hover {
+    color: #2f2e41;
+    text-decoration: none;
+}

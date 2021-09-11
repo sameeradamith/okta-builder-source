@@ -1,0 +1,77 @@
+<app-header></app-header>
+
+
+  <div class="container">
+
+
+
+    <h2 class="mb-4">Dashboard</h2>
+
+    <h5 class="mb-3">User Info</h5>
+    <!-- <form> -->
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Full name</label>
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{claims[1]?.value}}">
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{claims[3]?.value}}">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Locale</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{claims[2]?.value}}">
+            </div>
+          </div>
+
+    <!-- </form> -->
+
+
+
+    <h5 class="mb-3 mt-5">Built templates</h5>
+
+    <table class="table mb-5">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">App Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Template ID</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngIf="builds?.length <= 0">
+            <td class="text-center" colspan="4">
+              <h5>No project found! Create a your first build. <a href="/run">Create Now</a></h5>
+            </td>
+          </tr>
+
+          <tr *ngFor="let build of builds; let i = index">
+            <td>{{build.id}}</td>
+            <td>{{build.app_name | titlecase}}</td>
+            <td>{{build.app_type | titlecase}}</td>
+            <td>{{build.build_id}}</td>
+            <td>
+              <button type="button" (click)="downloadFile('source', build.build_id)" class="btn btn-primary btn-sm">Download Source</button>
+              <button type="button" class="btn btn-primary btn-sm ml-2">Download Docker</button>
+              <button type="button" (click)="deleteBuild(build.build_id, i)" class="btn btn-danger btn-sm ml-2">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+
+      <hr/>
+      <footer class="text-muted">
+        <div class="container text-center">
+          <p>Okta_builder_ - v1.0</p>
+          <p>Developed by Sameera Damith</p>
+        </div>
+      </footer>
+  </div>

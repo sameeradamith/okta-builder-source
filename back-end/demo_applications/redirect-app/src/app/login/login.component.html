@@ -1,0 +1,6 @@
+<div class="parent">
+    <div class="child">
+      <button *ngIf="!isAuthenticated" (click)="login()" class="login-btn">Login</button>
+      <button *ngIf="isAuthenticated" (click)="logout()" class="login-btn ml-10">Logout</button>
+    </div>
+</div>
